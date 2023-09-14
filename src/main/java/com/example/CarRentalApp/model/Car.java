@@ -17,8 +17,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Car extends BaseEntity{
 
-    @Column(name = "manufacturer")
-    private String manufacturer;
+    @Column(name = "model")
+    private String model;
 
     @Column(name = "nrOfSeats")
     private Byte numberOfSeats;
