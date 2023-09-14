@@ -1,6 +1,8 @@
 package com.example.CarRentalApp.model;
 
 
+import com.example.CarRentalApp.model.enums.CarColor;
+import com.example.CarRentalApp.model.enums.FuelType;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,6 +29,13 @@ public class Car extends BaseEntity{
     @Column(name = "fuel")
     @Enumerated(EnumType.STRING)
     private FuelType fuelType;
+
+    @Column(name = "color")
+    private CarColor carColor;
+
+    @Column(name = "description")
+    private String description;
+
 
     public Byte setNumberOfSeats(Byte nrOfSeats) {
         if (nrOfSeats<1) {

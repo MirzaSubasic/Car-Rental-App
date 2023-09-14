@@ -1,4 +1,4 @@
-package com.example.CarRentalApp.model;
+package com.example.CarRentalApp.model.enums;
 
 public enum FuelType {
     GASOLINE,
