@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Year;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,8 +19,15 @@ import lombok.Setter;
 @Table(name = "cars")
 public class Car extends BaseEntity{
 
+    @Lob
+    @Column(name = "image")
+    private Byte[] image;
+
     @Column(name = "model")
     private String model;
+
+    @Column (name = "year")
+    private Integer year;
 
     @Column(name = "nrOfSeats")
     private Byte numberOfSeats;
@@ -36,13 +45,16 @@ public class Car extends BaseEntity{
     @Column(name = "description")
     private String description;
 
+    public Integer setYear(Integer y) {
+        if (y < 1950 || y > Year.now().getValue()) {
+            return this.year = Year.now().getValue();
+        }
+        return this.year;
+    }
 
     public Byte setNumberOfSeats(Byte nrOfSeats) {
-        if (nrOfSeats<1) {
-            this.numberOfSeats = 1;
-        }
-        if (nrOfSeats > 9) {
-            this.numberOfSeats =9;
+        if (nrOfSeats<1 || nrOfSeats > 9) {
+            return this.numberOfSeats = 1;
         }
         return this.numberOfSeats = nrOfSeats;
     }
