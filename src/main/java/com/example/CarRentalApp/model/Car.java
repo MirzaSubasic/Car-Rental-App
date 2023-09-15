@@ -21,7 +21,7 @@ public class Car extends BaseEntity{
 
     @Lob
     @Column(name = "image")
-    private Byte[] image;
+    private byte[] image;
 
     @Column(name = "model")
     private String model;
