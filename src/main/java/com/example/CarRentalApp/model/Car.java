@@ -3,9 +3,7 @@ package com.example.CarRentalApp.model;
 
 import com.example.CarRentalApp.model.enums.CarColor;
 import com.example.CarRentalApp.model.enums.FuelType;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +13,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "cars")
 public class Car extends BaseEntity{
 
     @Column(name = "model")
