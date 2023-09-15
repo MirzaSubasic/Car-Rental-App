@@ -3,7 +3,6 @@ package com.example.CarRentalApp.bootstrap;
 import com.example.CarRentalApp.model.Car;
 import com.example.CarRentalApp.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
