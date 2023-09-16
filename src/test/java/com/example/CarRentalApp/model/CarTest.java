@@ -1,14 +1,25 @@
 package com.example.CarRentalApp.model;
 
 import com.example.CarRentalApp.model.enums.FuelType;
-import org.junit.jupiter.api.BeforeEach;
+import com.example.CarRentalApp.bootstrap.BootstrapImageLoader;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
+import static com.example.CarRentalApp.model.enums.CarColor.RED;
+import static com.example.CarRentalApp.model.enums.FuelType.GASOLINE;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
-    Car car = new Car();
+    BootstrapImageLoader bootstrapImageLoader = new BootstrapImageLoader();
+
+    byte[] image1 = bootstrapImageLoader.loadImageAsByteArray("golf8r.jpg");
+    Car car = new Car(image1, "Volkswagen golf 8 r",2021 ,
+            (byte) 5, (short) 315, GASOLINE, RED, "");
+
+    CarTest() throws IOException {
+    }
 
     @Test
     void setFuelType() {

@@ -1,56 +1,29 @@
 package com.example.CarRentalApp.model;
 
-
 import com.example.CarRentalApp.model.enums.CarColor;
 import com.example.CarRentalApp.model.enums.FuelType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.time.Year;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "cars")
-public class Car extends BaseEntity{
-
-    @Lob
-    @Column(name = "image")
-    private byte[] image;
-
-    @Column(name = "model")
-    private String model;
-
-    @Column (name = "yearOfMaking")
-    private Integer year;
+public class Car extends Vehicle {
 
     @Column(name = "nrOfSeats")
     private Byte numberOfSeats;
-
-    @Column(name = "enginePower")
-    private Short enginePower;
 
     @Column(name = "fuel")
     @Enumerated(EnumType.STRING)
     private FuelType fuelType;
 
-    @Column(name = "color")
-    private CarColor carColor;
-
-    @Column(name = "description")
-    private String description;
-
-    public Integer setYear(Integer y) {
-        if (y < 1950 || y > Year.now().getValue()) {
-            return this.year = Year.now().getValue();
-        }
-        return this.year;
+    @Builder
+    public Car(byte[] image1, String s, int i, byte b, short i1, FuelType fuelType, CarColor carColor, String s1) {
     }
+
 
     public Byte setNumberOfSeats(Byte nrOfSeats) {
         if (nrOfSeats<1 || nrOfSeats > 9) {
@@ -59,14 +32,4 @@ public class Car extends BaseEntity{
         return this.numberOfSeats = nrOfSeats;
     }
 
-    public Short setEnginePower (Short hp) {
-        if (hp < 40) {
-            return this.enginePower = 40;
-        }
-        if (hp > 3000) {
-            return this.enginePower = 3000;
-        }
-
-        return this.enginePower = hp;
-    }
 }
