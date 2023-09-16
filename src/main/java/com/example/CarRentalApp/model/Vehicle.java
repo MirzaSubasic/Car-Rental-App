@@ -1,12 +1,10 @@
 package com.example.CarRentalApp.model;
 
 import com.example.CarRentalApp.model.enums.CarColor;
+import com.example.CarRentalApp.model.enums.FuelType;
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Lob;
 import jakarta.persistence.MappedSuperclass;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +22,6 @@ public class Vehicle extends BaseEntity{
     @Column(name = "image")
     private byte[] image;
 
-    @Max(30)
     @Column(name = "model")
     private String model;
 
@@ -37,9 +34,14 @@ public class Vehicle extends BaseEntity{
     @Column(name = "color")
     private CarColor carColor;
 
-    @Max(350)
     @Column(name = "description")
     private String description;
+
+    @Column(name = "fuel")
+    private FuelType fuelType;
+
+    @Column(name = "pricePerDay")
+    private Integer price;
 
     public Integer setYear(Integer y) {
         if (y < 1950 || y > Year.now().getValue()) {

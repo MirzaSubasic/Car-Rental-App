@@ -16,7 +16,7 @@ class CarTest {
 
     byte[] image1 = bootstrapImageLoader.loadImageAsByteArray("golf8r.jpg");
     Car car = new Car(image1, "Volkswagen golf 8 r",2021 ,
-            (byte) 5, (short) 315, GASOLINE, RED, "");
+            (byte) 5, (short) 315, GASOLINE, RED, "", 150);
 
     CarTest() throws IOException {
     }

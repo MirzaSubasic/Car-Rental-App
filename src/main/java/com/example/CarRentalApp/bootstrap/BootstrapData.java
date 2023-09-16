@@ -22,17 +22,17 @@ public class BootstrapData implements CommandLineRunner {
 
         byte[] image1 = bootstrapImageLoader.loadImageAsByteArray("golf8r.jpg");
         Car vwr = new Car(image1, "Volkswagen golf 8 r",2021 ,
-                (byte) 5, (short) 315, GASOLINE, RED, "");
+                (byte) 5, (short) 315, GASOLINE, RED, "", 150);
         carRepository.save(vwr);
 
         byte[] image2 = bootstrapImageLoader.loadImageAsByteArray("citroenc3.jpg");
         Car citroenc3 = new Car(image2, "Citroen c3",2020 ,
-                (byte) 5, (short) 110, GASOLINE, WHITE, "");
+                (byte) 5, (short) 110, GASOLINE, WHITE, "", 80);
         carRepository.save(citroenc3);
 
         byte[] image3 = bootstrapImageLoader.loadImageAsByteArray("kiasportage.jpg");
         Car kiaSportage = new Car(image3, "Kia Sportage",2022,
-                (byte) 5, (short) 180, GASOLINE, GRAY, "");
+                (byte) 5, (short) 180, GASOLINE, GRAY, "", 110);
         carRepository.save(kiaSportage);
 
         System.out.println("Cars loaded in bootstrap: " + carRepository.count());
