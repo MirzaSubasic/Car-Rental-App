@@ -12,8 +12,14 @@
 <body>
     <div class="row justify-content-center" >
         <div class="col-6">
-            <div class="alert alert-primary" style="margin-top: 10px; background-color: lightgrey; color: black;">
-                Render elements here
+            <div class="alert alert-primary" style="margin-top: 10px; background-color: lightgrey; color: black;"
+                 th:if="${car != null}">
+                <h2>Car Information</h2>
+                <p>Model: <span th:text="${car.model}"></span></p>
+                <p>Year: <span th:text="${car.year}"></span></p>
+                <p>Number of Seats: <span th:text="${car.numberOfSeats}"></span></p>
+                <p>Car Color: <span th:text="${car.carColor}"></span></p>
+                <p>Price: <span th:text="${car.price}"></span></p>
             </div>
         </div>
     </div>

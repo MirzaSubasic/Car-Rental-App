@@ -4,6 +4,8 @@ import com.example.CarRentalApp.model.enums.CarColor;
 import com.example.CarRentalApp.model.enums.FuelType;
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.*;
 
 @Getter
@@ -12,6 +14,8 @@ import lombok.*;
 @Table(name = "cars")
 public class Car extends Vehicle {
 
+    @Min(1)
+    @Max(9)
     @Column(name = "nrOfSeats")
     private Byte numberOfSeats;
 
@@ -21,13 +25,6 @@ public class Car extends Vehicle {
                FuelType fuelType, CarColor carColor, String description, Integer price) {
         super(image, model, year, enginePower, carColor, description, fuelType, price);
         this.numberOfSeats = numberOfSeats;
-    }
-
-    public Byte setNumberOfSeats(Byte nrOfSeats) {
-        if (nrOfSeats<1 || nrOfSeats > 9) {
-            return this.numberOfSeats = 1;
-        }
-        return this.numberOfSeats = nrOfSeats;
     }
 
 }

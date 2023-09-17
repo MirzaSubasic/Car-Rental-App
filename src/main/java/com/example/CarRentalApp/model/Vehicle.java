@@ -5,6 +5,10 @@ import com.example.CarRentalApp.model.enums.FuelType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Lob;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,12 +26,15 @@ public class Vehicle extends BaseEntity{
     @Column(name = "image")
     private byte[] image;
 
+    @NotNull
     @Column(name = "model")
     private String model;
 
+    @Min(1960)
     @Column (name = "yearOfMaking")
     private Integer year;
 
+    @Positive
     @Column(name = "enginePower")
     private Short enginePower;
 
@@ -40,20 +47,16 @@ public class Vehicle extends BaseEntity{
     @Column(name = "fuel")
     private FuelType fuelType;
 
+    @Positive
+    @Max(3000)
     @Column(name = "pricePerDay")
     private Integer price;
 
     public Integer setYear(Integer y) {
-        if (y < 1950 || y > Year.now().getValue()) {
+        if (y > Year.now().getValue()) {
             return this.year = Year.now().getValue();
         }
         return this.year;
     }
 
-    public Short setEnginePower (Short hp) {
-        if (hp > 3000) {
-            return this.enginePower = 3000;
-        }
-        return this.enginePower = hp;
-    }
 }
