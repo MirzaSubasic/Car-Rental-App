@@ -11,6 +11,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "cars")
 public class Car extends Vehicle {
 
