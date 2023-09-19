@@ -3,17 +3,19 @@ package com.example.CarRentalApp.service.implementation;
 import com.example.CarRentalApp.model.Car;
 import com.example.CarRentalApp.repository.CarRepository;
 import com.example.CarRentalApp.service.CarService;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@AllArgsConstructor
 @Service
 public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
+
+    public CarServiceImpl(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
     @Override
     public Set<Car> findAll() {

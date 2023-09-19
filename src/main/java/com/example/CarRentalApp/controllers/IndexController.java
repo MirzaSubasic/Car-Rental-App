@@ -1,6 +1,7 @@
 package com.example.CarRentalApp.controllers;
 
 import com.example.CarRentalApp.model.Car;
+import com.example.CarRentalApp.repository.CarRepository;
 import com.example.CarRentalApp.service.CarService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -11,16 +12,18 @@ import java.util.Set;
 
 
 @Controller
-@AllArgsConstructor
 public class IndexController {
 
-    private final CarService carService;
+    private final CarRepository carRepository;
 
+    public IndexController(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model){
 
-        Set<Car> cars = carService.findAll();
-        model.addAttribute("cars", Car.builder().build());
+        Iterable<Car> cars = carRepository.findAll();
+        model.addAttribute("cars", cars);
 
         return "index";
     }

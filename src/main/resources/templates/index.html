@@ -11,17 +11,44 @@
 </head>
 <body>
 <!--/*@thymesVar id="cars" type="java.util.List<com.example.CarRentalApp.model.Car>"*/-->
-<div class="row justify-content-center">
-    <div class="col-6">
-        <div class="alert alert-primary" style="margin-top: 10px; background-color: lightgrey; color: black;"
-             th:each="car : ${cars}">
-            <p>Model: <span th:text="${car.model}"></span></p>
-            <p>Year: <span th:text="${car.year}"></span></p>
-            <p>Number of Seats: <span th:text="${car.numberOfSeats}"></span></p>
-            <p>Car Color: <span th:text="${car.carColor}"></span></p>
-            <p>Price: <span th:text="${car.price}"></span></p>
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car List</title>
+</head>
+<body>
+<h1>Car List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Number of Seats</th>
+        <th>Engine Power</th>
+        <th>Fuel Type</th>
+        <th>Car Color</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of cars obtained from the repository -->
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.year}"></td>
+        <td th:text="${car.numberOfSeats}"></td>
+        <td th:text="${car.enginePower}"></td>
+        <td th:text="${car.fuelType}"></td>
+        <td th:text="${car.carColor}"></td>
+        <td th:text="${car.description}"></td>
+        <td th:text="${car.price}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
 </body>
 </html>
