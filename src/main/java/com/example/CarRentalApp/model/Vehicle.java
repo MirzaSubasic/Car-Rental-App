@@ -31,6 +31,8 @@ public class Vehicle extends BaseEntity{
     private String model;
 
     @Min(1960)
+    @Max(2035)
+    @NotNull
     @Column (name = "yearOfMaking")
     private Integer year;
 
@@ -51,12 +53,5 @@ public class Vehicle extends BaseEntity{
     @Max(3000)
     @Column(name = "pricePerDay")
     private Integer price;
-
-    public Integer setYear(Integer y) {
-        if (y > Year.now().getValue()) {
-            return this.year = Year.now().getValue();
-        }
-        return this.year;
-    }
 
 }

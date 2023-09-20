@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Car rental</title>
+    <title>Car List</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -11,44 +11,25 @@
 </head>
 <body>
 <!--/*@thymesVar id="cars" type="java.util.List<com.example.CarRentalApp.model.Car>"*/-->
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Car List</title>
-</head>
-<body>
-<h1>Car List</h1>
 
-<table>
-    <thead>
-    <tr>
-        <th>Model</th>
-        <th>Year</th>
-        <th>Number of Seats</th>
-        <th>Engine Power</th>
-        <th>Fuel Type</th>
-        <th>Car Color</th>
-        <th>Description</th>
-        <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Iterate over the list of cars obtained from the repository -->
-    <tr th:each="car : ${cars}">
-        <td th:text="${car.model}"></td>
-        <td th:text="${car.year}"></td>
-        <td th:text="${car.numberOfSeats}"></td>
-        <td th:text="${car.enginePower}"></td>
-        <td th:text="${car.fuelType}"></td>
-        <td th:text="${car.carColor}"></td>
-        <td th:text="${car.description}"></td>
-        <td th:text="${car.price}"></td>
-    </tr>
-    </tbody>
-</table>
-</body>
-</html>
+<div class="container">
+    <div class="row">
+        <div th:each="car : ${cars}" class="col-md-4 mb-4" style="margin-top:10px">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${car.model}"></h5>
+                    <p class="card-text">
+                        Year: <span th:text="${car.year}"></span><br>
+                        Engine Power: <span th:text="${car.enginePower}"></span><br>
+                        Fuel Type: <span th:text="${car.fuelType}"></span><br>
+                        Car Color: <span th:text="${car.carColor}"></span><br>
+                        Price: <span th:text="${car.price}"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
