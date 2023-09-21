@@ -22,7 +22,7 @@ public class Car extends Vehicle {
 
 
     @Builder
-    public Car(byte[] image, String model, Integer year, Byte numberOfSeats, Short enginePower,
+    public Car(String image, String model, Integer year, Byte numberOfSeats, Short enginePower,
                FuelType fuelType, CarColor carColor, String description, Integer price) {
         super(image, model, year, enginePower, carColor, description, fuelType, price);
         this.numberOfSeats = numberOfSeats;

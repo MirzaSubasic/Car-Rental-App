@@ -15,14 +15,13 @@ import static com.example.CarRentalApp.model.enums.FuelType.*;
 public class BootstrapData implements CommandLineRunner {
 
     private final CarService carService;
-    private final BootstrapImageLoader bootstrapImageLoader;
 
+    String imgSrcFolder = "src/main/resources/static/Images/";
     @Override
     public void run(String... args) throws Exception {
 
-        byte[] image1 = bootstrapImageLoader.loadImageAsByteArray("golf8r.jpg");
         Car vwr = new Car();
-        vwr.setImage(image1);
+        vwr.setImage(imgSrcFolder + "golf8r.jpg");
         vwr.setModel("Volkswagen golf 8 r");
         vwr.setYear(2021);
         vwr.setNumberOfSeats((byte) 5);
@@ -33,9 +32,8 @@ public class BootstrapData implements CommandLineRunner {
         vwr.setPrice(150);
         carService.save(vwr);
 
-        byte[] image2 = bootstrapImageLoader.loadImageAsByteArray("citroenc3.jpg");
         Car citroenc3 = new Car();
-        citroenc3.setImage(image2);
+        citroenc3.setImage(imgSrcFolder + "citroenc3.jpg");
         citroenc3.setModel("Citroen c3");
         citroenc3.setYear(2020);
         citroenc3.setNumberOfSeats((byte) 5);
@@ -46,9 +44,8 @@ public class BootstrapData implements CommandLineRunner {
         citroenc3.setPrice(80);
         carService.save(citroenc3);
 
-        byte[] image3 = bootstrapImageLoader.loadImageAsByteArray("kiasportage.jpg");
         Car kiaSportage = new Car();
-        kiaSportage.setImage(image3);
+        kiaSportage.setImage(imgSrcFolder + "kiasportage.jpg");
         kiaSportage.setModel("Kia Sportage");
         kiaSportage.setYear(2022);
         kiaSportage.setNumberOfSeats((byte) 5);
