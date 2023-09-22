@@ -18,6 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${car.model}"></h5>
+                    <img th:src="'data:image/jpeg;base64,' + ${car.image}" class="card-img-top" alt="Car Image">
                     <p class="card-text">
                         Year: <span th:text="${car.year}"></span><br>
                         Engine Power: <span th:text="${car.enginePower}"></span><br>
