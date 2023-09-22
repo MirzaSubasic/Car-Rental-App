@@ -27,7 +27,7 @@ public class BootstrapData implements CommandLineRunner {
         vwr.setNumberOfSeats((byte) 5);
         vwr.setEnginePower((short) 315);
         vwr.setFuelType(GASOLINE);
-        vwr.setCarColor(RED);
+        vwr.setCarColor(BLUE);
         vwr.setDescription("");
         vwr.setPrice(150);
         carService.save(vwr);
@@ -51,7 +51,7 @@ public class BootstrapData implements CommandLineRunner {
         kiaSportage.setNumberOfSeats((byte) 5);
         kiaSportage.setEnginePower((short) 180);
         kiaSportage.setFuelType(GASOLINE);
-        kiaSportage.setCarColor(GRAY);
+        kiaSportage.setCarColor(GREEN);
         kiaSportage.setDescription("");
         kiaSportage.setPrice(110);
         carService.save(kiaSportage);

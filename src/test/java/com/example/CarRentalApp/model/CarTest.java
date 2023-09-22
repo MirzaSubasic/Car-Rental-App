@@ -11,7 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
-    Car car = new Car("static/Images/golf8r.jpg", "Volkswagen golf 8 r",2021 ,
+    String imgSrcFolder = "src/main/resources/static/Images/";
+
+    Car car = new Car(imgSrcFolder + "golf8r.jpg", "Volkswagen golf 8 r",2021 ,
             (byte) 5, (short) 315, GASOLINE, RED, "", 150);
 
     CarTest() throws IOException {
