@@ -17,6 +17,13 @@ public class BootstrapData implements CommandLineRunner {
     private final CarService carService;
 
     String imgSrcFolder = "src/main/resources/static/Images/";
+    String dummyText = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. " +
+            "Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. " +
+            "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. " +
+            "Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, " +
+            "venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. " +
+            "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. " +
+            "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. ";
     @Override
     public void run(String... args) throws Exception {
 
@@ -28,7 +35,7 @@ public class BootstrapData implements CommandLineRunner {
         vwr.setEnginePower((short) 315);
         vwr.setFuelType(GASOLINE);
         vwr.setCarColor(BLUE);
-        vwr.setDescription("");
+        vwr.setDescription(dummyText);
         vwr.setPrice(150);
         carService.save(vwr);
 
@@ -40,7 +47,7 @@ public class BootstrapData implements CommandLineRunner {
         citroenc3.setEnginePower((short) 110);
         citroenc3.setFuelType(GASOLINE);
         citroenc3.setCarColor(WHITE);
-        citroenc3.setDescription("");
+        citroenc3.setDescription(dummyText);
         citroenc3.setPrice(80);
         carService.save(citroenc3);
 
@@ -52,7 +59,7 @@ public class BootstrapData implements CommandLineRunner {
         kiaSportage.setEnginePower((short) 180);
         kiaSportage.setFuelType(GASOLINE);
         kiaSportage.setCarColor(GREEN);
-        kiaSportage.setDescription("");
+        kiaSportage.setDescription(dummyText);
         kiaSportage.setPrice(110);
         carService.save(kiaSportage);
 

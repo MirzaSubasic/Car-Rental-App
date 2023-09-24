@@ -46,6 +46,7 @@ public class Vehicle extends BaseEntity{
     @Column(name = "color")
     private CarColor carColor;
 
+    @Lob
     @Column(name = "description")
     private String description;
 

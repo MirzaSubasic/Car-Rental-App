@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Car Rental App</title>
+    <title>Car Details</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -10,28 +10,26 @@
           crossorigin="anonymous">
 </head>
 <body>
-<!--/*@thymesVar id="cars" type="java.util.List<com.example.CarRentalApp.model.Car>"*/-->
-
 <div class="container">
     <div class="row">
-        <div th:each="car : ${cars}" class="col-md-4 mb-4" style="margin-top:10px">
+        <div class="col-md-6 mx-auto mt-5">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${car.model}"></h5>
-                    <img th:src="'data:image/jpeg;base64,' + ${car.image}" class="card-img-top" alt="Car Image">
+                    <img th:src="'data:image/jpeg;base64,' + ${car.image}" class="card-img-top" alt="Car Image"><br><br>
                     <p class="card-text">
                         Year: <span th:text="${car.year}"></span><br>
                         Engine Power: <span th:text="${car.enginePower}"></span><br>
                         Fuel Type: <span th:text="${car.fuelType}"></span><br>
+                        Number of seats: <span th:text="${car.numberOfSeats}"></span><br>
                         Car Color: <span th:text="${car.carColor}"></span><br>
-                        Price per day: <span th:text="${car.price}"></span>
+                        Price per day: <span th:text="${car.price}"></span><br>
+                        Description: <br><span th:text="${car.description}"></span>
                     </p>
-                    <a href="#" th:href="@{'/car/' + ${car.id}}" class="btn btn-success">Car details</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>
