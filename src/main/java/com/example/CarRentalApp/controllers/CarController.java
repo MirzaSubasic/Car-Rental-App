@@ -24,4 +24,14 @@ public class CarController {
         mav.addObject(carService.findById(carId));
         return mav;
     }
+
+    @RequestMapping("new")
+    public String newCar(){
+        return "notImplemented";
+    }
+
+    @RequestMapping("history")
+    public String carHistory(){
+        return "notImplemented";
+    }
 }
