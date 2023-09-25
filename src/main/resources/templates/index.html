@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/navbar :: ~{::navbar(template='', menu='')}"></head>
     <meta charset="UTF-8">
     <title>Car Rental App</title>
 
@@ -18,7 +18,8 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${car.model}"></h5>
-                    <img th:src="'data:image/jpeg;base64,' + ${car.image}" class="card-img-top" alt="Car Image">
+                    <img th:src="'data:image/jpeg;base64,' + ${car.image}" class="card-img-top" alt="Car Image"
+                         style="max-height: 210px;">
                     <p class="card-text">
                         Year: <span th:text="${car.year}"></span><br>
                         Engine Power: <span th:text="${car.enginePower}"></span><br>
