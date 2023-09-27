@@ -28,7 +28,7 @@ public class Car extends Vehicle {
     @Column(name = "carColor")
     private CarColor carColor;
 
-    //@NonNull
+    @NonNull
     @OneToOne(cascade = CascadeType.ALL)
     private CarRegistration carRegistration;
 }
