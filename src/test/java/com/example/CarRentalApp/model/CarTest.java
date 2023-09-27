@@ -5,16 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static com.example.CarRentalApp.model.enums.CarColor.RED;
-import static com.example.CarRentalApp.model.enums.FuelType.GASOLINE;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
     String imgSrcFolder = "src/main/resources/static/Images/";
 
-    Car car = new Car(imgSrcFolder + "golf8r.jpg", "Volkswagen golf 8 r",2021 ,
-            (byte) 5, (short) 315, GASOLINE, RED, "", 150);
+    Car car = new Car();
 
     CarTest() throws IOException {
     }

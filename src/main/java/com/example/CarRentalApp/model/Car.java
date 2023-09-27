@@ -10,8 +10,10 @@ import lombok.*;
 
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 @Table(name = "cars")
 public class Car extends Vehicle {
 
@@ -20,12 +22,13 @@ public class Car extends Vehicle {
     @Column(name = "nrOfSeats")
     private Byte numberOfSeats;
 
+    @Column(name = "fuelType")
+    private FuelType fuelType;
 
-    @Builder
-    public Car(String image, String model, Integer year, Byte numberOfSeats, Short enginePower,
-               FuelType fuelType, CarColor carColor, String description, Integer price) {
-        super(image, model, year, enginePower, carColor, description, fuelType, price);
-        this.numberOfSeats = numberOfSeats;
-    }
+    @Column(name = "carColor")
+    private CarColor carColor;
 
+    //@NonNull
+    @OneToOne(cascade = CascadeType.ALL)
+    private CarRegistration carRegistration;
 }
