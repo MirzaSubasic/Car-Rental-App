@@ -16,16 +16,19 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" th:href="@{car/new}">Create New Car</a>
+          <a class="nav-link" th:href="@{/}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{registration/}">Car registration</a>
+          <a class="nav-link" th:href="@{/car/new}">New Car</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{car/history}">Car Renting History</a>
+          <a class="nav-link" th:href="@{/registration/}">Car registration</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{customers/}">Customers</a>
+          <a class="nav-link" th:href="@{/car/history}">Car Renting History</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/customers/}">Customers</a>
         </li>
       </ul>
     </div>
