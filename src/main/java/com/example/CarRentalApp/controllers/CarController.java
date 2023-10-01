@@ -1,10 +1,12 @@
 package com.example.CarRentalApp.controllers;
 
+import com.example.CarRentalApp.model.Car;
 import com.example.CarRentalApp.service.CarService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RequestMapping("car/")
@@ -25,9 +27,24 @@ public class CarController {
         return mav;
     }
 
-    @RequestMapping("new")
-    public String newCar(){
-        return "notImplemented";
+    @GetMapping("new")
+    public String newCar(Model model){
+        model.addAttribute("car", new Car());
+
+        return "cars/carForm";
+    }
+
+    @PostMapping("recipe")
+    public String saveOrUpdate(@Valid @ModelAttribute("recipe") Car command, BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+
+            return "cars/carForm";
+        }
+
+        Car savedCommand = carService.save(command);
+
+        return "redirect:/car/" + savedCommand.getId() + "/carDetails";
     }
 
     @RequestMapping("history")
