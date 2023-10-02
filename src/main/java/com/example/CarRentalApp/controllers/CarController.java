@@ -5,7 +5,7 @@ import com.example.CarRentalApp.service.CarService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,6 +27,11 @@ public class CarController {
         return mav;
     }
 
+    @InitBinder("carRegistration")
+    public void initOwnerBinder(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+    }
+
     @GetMapping("new")
     public String newCar(Model model){
         model.addAttribute("car", new Car());
@@ -34,18 +39,12 @@ public class CarController {
         return "cars/carForm";
     }
 
-    @PostMapping("recipe")
-    public String saveOrUpdate(@Valid @ModelAttribute("recipe") Car command, BindingResult bindingResult){
-
-        if(bindingResult.hasErrors()){
-
-            return "cars/carForm";
-        }
-
-        Car savedCommand = carService.save(command);
-
-        return "redirect:/car/" + savedCommand.getId() + "/carDetails";
+    @PostMapping("new")
+    public String save(@Valid Car car){
+        carService.save(car);
+        return "redirect:/car/" + car.getId();
     }
+
 
     @RequestMapping("history")
     public String carHistory(){

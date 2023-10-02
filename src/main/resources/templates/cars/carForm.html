@@ -10,6 +10,71 @@
       crossorigin="anonymous">
 </head>
 <body>
-
+    <form th:object="${car}" th:action="@{/car/new}" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Create Car</h5>
+                            <form th:object="${car}" th:action="@{/car/new}" method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="image">Image:</label>
+                                    <input id="image" name="imageData" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="model" class="form-label">Model:</label>
+                                    <input type="text" class="form-control" id="model" name="model" required="required" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="year" class="form-label">Year of Making:</label>
+                                    <input type="number" class="form-control" id="year" name="year" required="required" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="enginePower" class="form-label">Engine Power:</label>
+                                    <input type="number" class="form-control" id="enginePower" name="enginePower" required="required" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="carColor" class="form-label">Car Color:</label>
+                                    <select class="form-select" id="carColor" name="carColor">
+                                        <option th:each="color : ${T(com.example.CarRentalApp.model.enums.CarColor).values()}"
+                                                th:value="${color}" th:text="${color}"></option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description:</label>
+                                    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fuelType" class="form-label">Fuel Type:</label>
+                                    <select class="form-select" id="fuelType" name="fuelType">
+                                        <option th:each="fuel : ${T(com.example.CarRentalApp.model.enums.FuelType).values()}"
+                                                th:value="${fuel}" th:text="${fuel}"></option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Price Per Day:</label>
+                                    <input type="number" class="form-control" id="price" name="price" required="required" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numberOfSeats" class="form-label">Number of Seats:</label>
+                                    <input type="number" class="form-control" id="numberOfSeats" name="numberOfSeats" required="required" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registrationExpiry" class="form-label">Registration Expiry:</label>
+                                    <input type="date" class="form-control" id="registrationExpiry" name="registrationExpiry" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registrationTable" class="form-label">Registration Table:</label>
+                                    <input type="text" class="form-control" id="registrationTable" name="registrationTable" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Create Car</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
 </html>
