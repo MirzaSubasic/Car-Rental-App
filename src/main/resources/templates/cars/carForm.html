@@ -19,8 +19,8 @@
                             <h5 class="card-title">Create Car</h5>
                             <form th:object="${car}" th:action="@{/car/new}" method="post" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                    <label for="image">Image:</label>
-                                    <input id="image" name="imageData" type="text">
+                                    <label for="image">Image path:</label>
+                                    <input id="image" name="image" type="text">
                                 </div>
                                 <div class="mb-3">
                                     <label for="model" class="form-label">Model:</label>
@@ -59,14 +59,6 @@
                                 <div class="mb-3">
                                     <label for="numberOfSeats" class="form-label">Number of Seats:</label>
                                     <input type="number" class="form-control" id="numberOfSeats" name="numberOfSeats" required="required" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="registrationExpiry" class="form-label">Registration Expiry:</label>
-                                    <input type="date" class="form-control" id="registrationExpiry" name="registrationExpiry" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="registrationTable" class="form-label">Registration Table:</label>
-                                    <input type="text" class="form-control" id="registrationTable" name="registrationTable" />
                                 </div>
                                 <button type="submit" class="btn btn-primary">Create Car</button>
                             </form>

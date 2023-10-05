@@ -58,25 +58,4 @@ public class Vehicle extends BaseEntity{
     @Column(name = "pricePerDay")
     private Integer price;
 
-
-    public void setImage(String imagePath) {
-        try {
-            // Read the input image as bytes
-            File inputFile = new File(imagePath);
-            byte[] imageBytes = new byte[(int) inputFile.length()];
-            FileInputStream fis = new FileInputStream(inputFile);
-            fis.read(imageBytes);
-            fis.close();
-
-            // Encode the image bytes to Base64
-            String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-
-            // Set the Base64-encoded image as an attribute
-            this.image = base64Image;
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("An error occurred: " + e.getMessage());
-        }
-    }
-
 }

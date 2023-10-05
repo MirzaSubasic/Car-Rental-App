@@ -1,10 +1,18 @@
 package com.example.CarRentalApp.service.implementation;
 
 import com.example.CarRentalApp.model.Car;
+import com.example.CarRentalApp.model.CarRegistration;
 import com.example.CarRentalApp.repository.CarRepository;
+import com.example.CarRentalApp.service.CarRegistrationService;
 import com.example.CarRentalApp.service.CarService;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.time.LocalDate;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,6 +39,24 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car save(Car object) {
+        String imagePath = object.getImage().replace("\"", "");
+        File inputFile = new File(imagePath);
+
+        if (inputFile.exists()) {
+            try {
+                // Read the input image as bytes
+                byte[] imageBytes = Files.readAllBytes(inputFile.toPath());
+
+                // Encode the image bytes to Base64
+                String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+                object.setImage(base64Image);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.err.println("An error occurred: " + e.getMessage());
+            }
+        } else {
+            System.err.println("Image file does not exist: " + imagePath);
+        }
         return carRepository.save(object);
     }
 
