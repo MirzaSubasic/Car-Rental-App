@@ -4,15 +4,17 @@ package com.example.CarRentalApp.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import jakarta.validation.constraints.Email;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "customers")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Customer extends BaseEntity{
 
@@ -27,6 +29,10 @@ public class Customer extends BaseEntity{
     @NonNull
     @Column(name = "address")
     private String homeAddress;
+
+    @Email
+    @Column(name = "mail")
+    private String mail;
 
     @NonNull
     @Column(name = "phoneNumber")
