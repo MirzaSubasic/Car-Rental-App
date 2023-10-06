@@ -2,13 +2,16 @@ package com.example.CarRentalApp.bootstrap;
 
 import com.example.CarRentalApp.model.Car;
 import com.example.CarRentalApp.model.CarRegistration;
+import com.example.CarRentalApp.model.Customer;
 import com.example.CarRentalApp.service.CarRegistrationService;
 import com.example.CarRentalApp.service.CarService;
+import com.example.CarRentalApp.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import static com.example.CarRentalApp.model.enums.CarColor.*;
 import static com.example.CarRentalApp.model.enums.FuelType.*;
@@ -19,8 +22,8 @@ import static com.example.CarRentalApp.model.enums.FuelType.*;
 public class BootstrapData implements CommandLineRunner {
 
     private final CarService carService;
-
     private final CarRegistrationService carRegistrationService;
+    private final CustomerService customerService;
 
     String imgSrcFolder = "src/main/resources/static/Images/";
     String dummyText = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. " +
@@ -42,16 +45,13 @@ public class BootstrapData implements CommandLineRunner {
         vwr.setDescription(dummyText);
         vwr.setPrice(150);
 
-
         CarRegistration registration = new CarRegistration();
-        // Set expiration date to one year from now
         registration.setRegistrationExpiry(LocalDate.now().plusYears(1));
         registration.setRegistrationTable("A45-I-457");
         registration.setCar(vwr);
         vwr.setCarRegistration(registration);
         carService.save(vwr);
         carRegistrationService.save(registration);
-
 
 
         Car citroenc3 = new Car();
@@ -74,7 +74,6 @@ public class BootstrapData implements CommandLineRunner {
         carRegistrationService.save(registration1);
 
 
-
         Car kiaSportage = new Car();
         kiaSportage.setImage(imgSrcFolder + "kiasportage.jpg");
         kiaSportage.setModel("Kia Sportage");
@@ -93,5 +92,26 @@ public class BootstrapData implements CommandLineRunner {
         kiaSportage.setCarRegistration(registration2);
         carService.save(kiaSportage);
         carRegistrationService.save(registration2);
+
+
+        Customer customer = new Customer();
+        customer.setFirstName("John");
+        customer.setLastName("Doe");
+        customer.setHomeAddress("123 Main Street");
+        customer.setMail("john.doe@example.com");
+        customer.setPhoneNumber("123-456-7890");
+        customer.setDrivingLicenceNumber("ABC123456");
+        customer.setDateOfBirth(new Date(1980,10,5));
+        customerService.save(customer);
+
+        Customer customer1 = new Customer();
+        customer1.setFirstName("Alice");
+        customer1.setLastName("Smith");
+        customer1.setHomeAddress("456 Elm Street");
+        customer1.setMail("alice.smith@example.com");
+        customer1.setPhoneNumber("987-654-3210");
+        customer1.setDrivingLicenceNumber("XYZ789012");
+        customer1.setDateOfBirth(new Date(1995,4,15));
+        customerService.save(customer1);
     }
 }

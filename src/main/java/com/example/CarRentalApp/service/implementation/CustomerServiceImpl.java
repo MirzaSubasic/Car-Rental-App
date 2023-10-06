@@ -1,15 +1,16 @@
 package com.example.CarRentalApp.service.implementation;
 
-import com.example.CarRentalApp.model.CarRegistration;
 import com.example.CarRentalApp.model.Customer;
 import com.example.CarRentalApp.repository.CustomerRepository;
 import com.example.CarRentalApp.service.CustomerService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Service
 @AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 

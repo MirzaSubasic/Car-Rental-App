@@ -1,17 +1,13 @@
 package com.example.CarRentalApp.service.implementation;
 
 import com.example.CarRentalApp.model.Car;
-import com.example.CarRentalApp.model.CarRegistration;
 import com.example.CarRentalApp.repository.CarRepository;
-import com.example.CarRentalApp.service.CarRegistrationService;
 import com.example.CarRentalApp.service.CarService;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.time.LocalDate;
 import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;

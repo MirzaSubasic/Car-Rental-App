@@ -1,6 +1,5 @@
 package com.example.CarRentalApp.service.implementation;
 
-import com.example.CarRentalApp.model.Car;
 import com.example.CarRentalApp.model.CarRegistration;
 import com.example.CarRentalApp.repository.CarRegistrationRepository;
 import com.example.CarRentalApp.service.CarRegistrationService;
