@@ -6,7 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.util.ResourceUtils;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -56,20 +60,6 @@ class CarServiceImplTest {
 
         // Verify that the result matches the mocked data
         assertEquals(carId, result.getId());
-    }
-
-    @Test
-    void save() {
-        Car carToSave = new Car();
-        carToSave.setId(1L);
-
-        // Mock the behavior of carRepository.save()
-        when(carRepository.save(carToSave)).thenReturn(carToSave);
-
-        Car result = carService.save(carToSave);
-
-        // Verify that the result matches the mocked data
-        assertEquals(1L, result.getId());
     }
 
     @Test

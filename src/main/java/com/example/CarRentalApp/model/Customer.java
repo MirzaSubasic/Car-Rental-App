@@ -43,6 +43,6 @@ public class Customer extends BaseEntity{
     private String drivingLicenceNumber;
 
     @NonNull
-    @Column(name = "name")
+    @Column(name = "dateOfBirth")
     private Date dateOfBirth;
 }
