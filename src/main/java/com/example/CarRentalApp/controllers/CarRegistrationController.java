@@ -18,6 +18,6 @@ public class CarRegistrationController {
     @GetMapping("")
     public String listCarRegistrations(Model model) {
         model.addAttribute("carRegistrations", carRegistrationService.findAll());
-        return "cars/carRegistrationDetails";
+        return "registration/carRegistrationDetails";
     }
 }
