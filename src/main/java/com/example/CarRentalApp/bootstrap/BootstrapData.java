@@ -11,6 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 import static com.example.CarRentalApp.model.enums.CarColor.*;
@@ -101,7 +102,13 @@ public class BootstrapData implements CommandLineRunner {
         customer.setMail("john.doe@example.com");
         customer.setPhoneNumber("123-456-7890");
         customer.setDrivingLicenceNumber("ABC123456");
-        customer.setDateOfBirth(new Date(1980,10,5));
+        // Create a Calendar instance and set the date of birth
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1980, Calendar.OCTOBER, 5);
+        // Convert the Calendar instance to a Date
+        Date dateOfBirth = calendar.getTime();
+        // Set the dateOfBirth in the customer object
+        customer.setDateOfBirth(dateOfBirth);
         customerService.save(customer);
 
         Customer customer1 = new Customer();
@@ -111,7 +118,10 @@ public class BootstrapData implements CommandLineRunner {
         customer1.setMail("alice.smith@example.com");
         customer1.setPhoneNumber("987-654-3210");
         customer1.setDrivingLicenceNumber("XYZ789012");
-        customer1.setDateOfBirth(new Date(1995,4,15));
+        Calendar calendar1 = Calendar.getInstance();
+        calendar.set(1995, Calendar.SEPTEMBER, 15);
+        Date dateOfBirth1 = calendar1.getTime();
+        customer1.setDateOfBirth(dateOfBirth1);
         customerService.save(customer1);
     }
 }
