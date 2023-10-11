@@ -28,6 +28,7 @@
                         Price per day: <span th:text="${car.price}"></span>
                     </p>
                     <a href="#" th:href="@{'/car/' + ${car.id}}" class="btn btn-success">Car details</a>
+                    <a href="#" th:href="@{'/car/' + ${car.id} + '/update'}" class="btn btn-success">Update car</a>
                 </div>
             </div>
         </div>

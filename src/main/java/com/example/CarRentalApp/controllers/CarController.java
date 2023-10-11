@@ -54,12 +54,28 @@ public class CarController {
         carRegistration.setCar(car);
         car.setCarRegistration(carRegistration);
 
-        // Save the Car (including CarRegistration due to CascadeType.ALL)
         carService.save(car);
-
         return "redirect:/car/" + car.getId();
     }
 
+    @GetMapping("{carId}/update")
+    public String updateCar(@PathVariable Long carId, Model model) {
+        model.addAttribute("car", carService.findById(carId));
+        return "cars/updateCar";
+    }
+
+    @PostMapping("{carId}/update")
+    public String saveUpdatedCar(@PathVariable Long carId, @Valid Car car, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "cars/updateCar";
+        }
+        else {
+            car.setId(carId);
+            Car savedCar = carService.save(car);
+            return "redirect:/car/" + savedCar.getId();
+        }
+    }
 
     @RequestMapping("history")
     public String carHistory(){
