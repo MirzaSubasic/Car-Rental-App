@@ -77,6 +77,19 @@ public class CarController {
         }
     }
 
+    @GetMapping("{carId}/delete")
+    public String deleteCarPage(@PathVariable Long carId, Model model) {
+        model.addAttribute("car", carService.findById(carId));
+        return "cars/deleteCar";
+    }
+
+    @PostMapping("{carId}/delete")
+    public String deleteCar(@PathVariable Long carId) {
+        carService.deleteById(carId);
+        return "redirect:/index";
+    }
+
+
     @RequestMapping("history")
     public String carHistory(){
         return "notImplemented";
