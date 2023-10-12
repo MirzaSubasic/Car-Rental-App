@@ -24,7 +24,3 @@
 ###### Index page can be reached through port 8080
 ###### http://localhost:8080/
 ###
-
-### Application photos
-![Screenshot 2023-10-11 164234.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%202023-10-11%20164234.png)
-

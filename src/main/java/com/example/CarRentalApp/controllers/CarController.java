@@ -11,8 +11,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDate;
-
 @RequestMapping("car/")
 @Controller
 public class CarController {
@@ -32,7 +30,7 @@ public class CarController {
     }
 
     @InitBinder("carRegistration")
-    public void initOwnerBinder(WebDataBinder dataBinder) {
+    public void initCarBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
 

@@ -17,6 +17,7 @@
                 <th>Registration Expiry</th>
                 <th>Registration Table</th>
                 <th>Car</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +25,8 @@
                 <td th:text="${registration.registrationExpiry}"></td>
                 <td th:text="${registration.registrationTable}"></td>
                 <td th:text="${registration.car.model}"></td>
+                <td><a href="#" th:href="@{'/registration/' + ${registration.car.id} + '/update'}"
+                       class="btn btn-success">Update</a></td>
             </tr>
             </tbody>
         </table>

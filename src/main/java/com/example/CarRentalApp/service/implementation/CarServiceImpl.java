@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.time.LocalDate;
 import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;
@@ -52,6 +53,11 @@ public class CarServiceImpl implements CarService {
             }
         } else {
             System.err.println("Image file does not exist: " + imagePath);
+        }
+        if (object.getCarRegistration().getRegistrationTable() == null ||
+                object.getCarRegistration().getRegistrationExpiry() == null){
+            object.getCarRegistration().setRegistrationTable("000-0-000");
+            object.getCarRegistration().setRegistrationExpiry(LocalDate.EPOCH);
         }
         return carRepository.save(object);
     }
