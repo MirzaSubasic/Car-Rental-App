@@ -38,13 +38,16 @@ public class CarRegistrationController {
     }
 
     @PostMapping("{carId}/update")
-    public String saveUpdatedCar(@Valid CarRegistration carRegistration, BindingResult bindingResult) {
+    public String saveUpdatedCar(@PathVariable Long carId, @Valid CarRegistration carRegistration,
+                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "registration/updateRegistration";
         }
         else {
+            carRegistration.setId(carId);
+            carRegistration.setCar(carService.findById(carId));
             carRegistrationService.save(carRegistration);
-            return "redirect:/registration/carRegistrationDetails";
+            return "redirect:/registration/";
         }
     }
 
