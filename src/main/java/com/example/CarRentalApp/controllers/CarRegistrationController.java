@@ -1,6 +1,5 @@
 package com.example.CarRentalApp.controllers;
 
-import com.example.CarRentalApp.model.Car;
 import com.example.CarRentalApp.model.CarRegistration;
 import com.example.CarRentalApp.service.CarRegistrationService;
 import com.example.CarRentalApp.service.CarService;

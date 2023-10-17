@@ -31,7 +31,10 @@
             <td th:text="${customer.lastName}"></td>
             <td th:text="${customer.homeAddress}"></td>
             <td th:text="${customer.phoneNumber}"></td>
-            <td><a th:href="@{'/customers/' + ${customer.id}}" class="btn btn-success">Details</a></td>
+            <td>
+                <a th:href="@{'/customers/' + ${customer.id}}" class="btn btn-success">Details</a>
+                <a th:href="@{'/customers/' + ${customer.id} + '/update'}" class="btn btn-success">Update</a>
+            </td>
         </tr>
         </tbody>
     </table>
