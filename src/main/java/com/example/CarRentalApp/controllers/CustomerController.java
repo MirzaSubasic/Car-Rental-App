@@ -51,10 +51,10 @@ public class CustomerController {
     }
 
     @PostMapping("{customerId}/update")
-    public String saveUpdatedCustomer(@PathVariable Long customerId, @Valid Customer customer,
+    public String saveUpdatedCustomer(@PathVariable Long customerId, @Valid @ModelAttribute Customer customer,
                                       BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "customers/updateCustomer";
+            return "updateCustomer";
         } else {
             customer.setId(customerId);
             Customer savedCustomer = customerService.save(customer);

@@ -1,11 +1,12 @@
 package com.example.CarRentalApp.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -18,24 +19,25 @@ import java.util.Date;
 @Builder
 public class Customer extends BaseEntity{
 
-    @Column(name = "name")
+    @NotEmpty(message = "First name is required")
     private String firstName;
 
-    @Column(name = "lastName")
+    @NotEmpty(message = "Last name is required")
     private String lastName;
 
-    @Column(name = "address")
     private String homeAddress;
 
-    @Column(name = "mail")
+    @Email(message = "Invalid email format")
     private String mail;
 
-    @Column(name = "phoneNumber")
+    @NotEmpty(message = "Phone number is required")
     private String phoneNumber;
 
-    @Column(name = "drivingLicence")
+    @NotEmpty(message = "License number is required")
     private String drivingLicenceNumber;
 
-    @Column(name = "dateOfBirth")
+    @NotNull(message = "Date of birth is required")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 }
