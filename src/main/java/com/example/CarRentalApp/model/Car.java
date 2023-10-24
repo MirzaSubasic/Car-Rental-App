@@ -8,6 +8,8 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,4 +32,7 @@ public class Car extends Vehicle {
 
     @OneToOne(cascade = CascadeType.ALL)
     private CarRegistration carRegistration;
+
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "car")
+    private Set<CarRentingHistory> carRentingHistories;
 }

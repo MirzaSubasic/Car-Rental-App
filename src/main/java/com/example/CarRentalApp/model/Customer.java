@@ -40,4 +40,7 @@ public class Customer extends BaseEntity{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
+
+    @OneToOne
+    private Customer customer;
 }
