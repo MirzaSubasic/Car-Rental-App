@@ -4,11 +4,13 @@ import com.example.CarRentalApp.model.CarRentingHistory;
 import com.example.CarRentalApp.repository.CarRentingHistoryRepository;
 import com.example.CarRentalApp.service.CarRentingHistoryService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @AllArgsConstructor
+@Service
 public class CarRentingHistoryServiceImpl implements CarRentingHistoryService {
 
     private final CarRentingHistoryRepository carRentingHistoryRepository;
